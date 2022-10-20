@@ -17,7 +17,7 @@ app.use(cors());
 app.use(cookieParser());
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.prod, {
+mongoose.connect(process.env.MONGO_URL || config.prod, {
     useNewUrlParser: true
 }, err => {
     if (err) throw err;
